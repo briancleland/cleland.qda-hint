@@ -1,0 +1,12 @@
+{
+    "name": "cleland.brackets-qdahint",
+    "title": "QDAhint",
+    "description": "Hint with hashtags in current project.",
+    "homepage": "https://github.com/briancleland/cleland-qdahint",
+    "version": "0.1",
+    "author": "Brian Cleland",
+    "license": "MIT",
+    "engines": {
+        "brackets": ">=0.24.0"
+    }
+}
