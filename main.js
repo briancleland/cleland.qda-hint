@@ -43,12 +43,7 @@ define(function (require, exports, module) {
     FindInFiles = brackets.getModule("search/FindInFiles");
 
   var
-    lastLine,
-    lastFileName,
-    cachedMatches,
     cachedTagList = [],
-    tokenDefinition,
-    currentTokenDefinition,
     queryInfo = {
       query: "\\s(#\\w+)",
       caseSensitive: false,
@@ -63,9 +58,6 @@ define(function (require, exports, module) {
    * @constructor
    */
   function WordHints() {
-    this.lastLine = 0;
-    this.lastFileName = "";
-    this.cachedMatches = [];
     this.tokenDefinition = /\#[\-a-zA-Z0-9_]*[a-zA-Z0-9_]*/g;
     this.currentTokenDefinition = /\#[\-a-zA-Z0-9_]*$/g;
   }
@@ -85,6 +77,7 @@ define(function (require, exports, module) {
         }
       }
       cachedTagList.sort();
+      console.log("updatetaglist: ", cachedTagList);
     });
   }
 
@@ -121,6 +114,7 @@ define(function (require, exports, module) {
         }
       }
     }
+      console.log("hasHints: ", cachedTagList);
     return false;
   };
 
@@ -164,6 +158,7 @@ define(function (require, exports, module) {
         hintList.push(cachedTagList[i]);
       }
     }
+      console.log("getHints: ", cachedTagList);
     return {
       hints: hintList,
       match: symbolBeforeCursorArray[0],
